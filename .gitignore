@@ -1,4 +1,6 @@
-venv/
-*.ipynb_checkpoints/
-data/Reviews.csv
-venv310/
+__pycache__/
+.ipynb_checkpoints/
+.env
+*.env
+*.DS_Store
+Yelp JSON/

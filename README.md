@@ -1,36 +1,42 @@
 # Review Summarization Pipeline
 
-This project demonstrates how to generate abstractive summaries of real Amazon product reviews using transformer-based language models. The goal is to evaluate multiple pre-trained models and compare their ability to generate coherent, relevant, and concise summaries of customer sentiment.
+This project is an end-to-end natural language processing (NLP) pipeline that analyzes customer reviews for restaurants using the Yelp Open Dataset. It includes:
 
-## Models Compared
+- Feature extraction from review text  
+- Sentiment analysis at both review and feature level  
+- Abstractive summarization using transformer models
 
-- **PEGASUS (google/pegasus-xsum):** Optimized for short news-style summaries. Tends to hallucinate if the input is long or off-domain.
-- **BART (facebook/bart-large-cnn):** Performs well on product reviews and longer content. More extractive and grounded in input text.
+The goal is to extract actionable insights from large volumes of unstructured text and generate summaries that help users quickly understand customer opinions.
 
-## Sample Output
-
-| Model | Summary Behavior |
-|-------|------------------|
-| **PEGASUS** | Hallucinates content (e.g. invented journalists/books) |
-| **BART** | Faithful to input, better captures review content |
-
-View detailed comparisons in [`outputs/model_comparison_summaries.csv`](outputs/model_comparison_summaries.csv)
-
-## Tech Stack
-
-- Python 3.10
-- PyTorch 2.1.2
-- Transformers 4.37.2
-- Jupyter Notebook
-- pandas / tqdm
-
-## Repo Structure
+## Project Structure
 review-summarization-pipeline/
+│
+├── Yelp JSON/                          # Your downloaded dataset (no changes needed)
+│
 ├── notebooks/
-│   └── 01_exploration_and_summarization.ipynb
-├── outputs/
-│   └── model_comparison_summaries.csv
-├── data/
-│   └── Reviews.csv
-├── README.md
-└── requirements.txt
+│   ├── 01_data_cleaning_eda.ipynb      # Load & explore Yelp restaurant reviews
+│   └── 02_feature_extraction.ipynb     # Extract product/restaurant features
+│   └── 03_sentiment_analysis.ipynb     # Sentiment per review & per feature
+│   └── 04_review_summarization.ipynb   # Generate summaries using transformer models
+│
+├── src/                                # (Optional later) Python modules for each step
+│
+├── README.md                           # Project description, goals, instructions
+├── requirements.txt                    # Python dependencies
+├── .gitignore                          # Ignore data, virtual envs, and VS Code stuff
+└── LICENSE                             # MIT license (default)
+
+## Dataset
+
+[Yelp Open Dataset](https://www.yelp.com/dataset)  
+Stored locally under `Yelp JSON/yelp_dataset/`.
+
+## Getting Started
+
+1. Clone the repository
+2. Set up a virtual environment and install dependencies
+3. Run notebooks in order
+
+## License
+
+This project is licensed under the MIT License.
