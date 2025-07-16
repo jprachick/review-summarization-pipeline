@@ -11,13 +11,13 @@ The goal is to extract actionable insights from large volumes of unstructured te
 ## Project Structure
 <pre><code>```bash
 review-summarization-pipeline/
-├── Yelp JSON/                       # Your downloaded dataset (no changes needed)
+├── Yelp JSON/                       # Dataset
 ├── notebooks/
 │   ├── 01_data_cleaning_eda.ipynb  # Load & explore Yelp restaurant reviews
 │   ├── 02_feature_extraction.ipynb # Extract product/restaurant features
 │   ├── 03_sentiment_analysis.ipynb # Sentiment per review & per feature
 │   └── 04_review_summarization.ipynb # Generate summaries using transformer models
-├── src/                            # (Optional later) Python modules for each step
+├── src/                            # Python modules for each step
 ├── README.md                       # Project description, goals, instructions
 ├── requirements.txt                # Python dependencies
 ├── .gitignore                      # Ignore data, virtual envs, and VS Code stuff
